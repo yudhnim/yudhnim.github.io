@@ -3,26 +3,15 @@ layout: page
 title: About
 ---
 
-Sidey is a simple and minimalistic jekyll blogging theme.
+My personal blog in order to wrtie about everything during my study and life.
 
-### Features
+### Something about me
 
-- Responsive design
-- Inline CSS
-- Anchor headings
-- Search
-- Tags & tag pages
-- Security headers (for Netlify hosting)
-- 404 page
-- Compressed CSS and HTML
-- 100/100 score on Lighthouse, Page Speed Insights & Webpagetest
-- Robots.txt
-- Atom & Json feeds
-- Sass
-- Seo optimized (Twitter cards, Facebook Open Graph, Schema.org)
-- Ultra fast (Only ~5kb of CSS)
-- Sidebar navigation
+- Nguyen Minh Duy
+- 10/07/2003
+- University of Science, VNU - HCM (2021 till now)
+- Credit Rating, Machine Learning, Statistics
 
-### Screenshot
 
-![Screenshot](screenshot.png)
+
+
