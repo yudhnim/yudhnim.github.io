@@ -13,4 +13,5 @@ After years of learning, I can now create my own blog to write anything. If you 
 Hope that all of my knowlegde can help you in some ways.
 
 A first hello,
+
 Minh Duy.
