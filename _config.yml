@@ -1,14 +1,14 @@
 site: Sidey
 url: #yoururl
-title: Sidey
-description: Simple and minimalistic jekyll blogging theme.
+title: Personal Writings
+description: my thought during my study and life.
 twitter:
   username: #yourusername
   card: summary
   creator: #yourusername
 author:
   twitter: #yourusername
-  name: #yourusername
+  name: Nguyen Minh Duy
   avatar:
   email: #youremail
   url: #yoururl
