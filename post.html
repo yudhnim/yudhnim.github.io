@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post | duy.me</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="layout">
+
+    <div id="sidebar"></div>
+
+    <main class="content">
+      <div id="post-content"></div>
+    </main>
+
+  </div>
+
+  <script>
+    // Load sidebar
+    fetch("sidebar.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("sidebar").innerHTML = html;
+      });
+
+    // Get the markdown file name from URL param `name`
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name") || "first-post";
+
+    // Load markdown and convert to HTML
+    fetch(`posts/${name}.md`)
+      .then(res => res.text())
+      .then(md => {
+        const html = marked.parse(md);
+        document.getElementById("post-content").innerHTML = html;
+      });
+  </script>
+
+</body>
+</html>

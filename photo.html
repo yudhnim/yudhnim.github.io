@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photos | duy.me</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Matches your blog visual style */
+    .photo-item {
+      margin-bottom: 40px;
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .caption {
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layout">
+
+    <div id="sidebar"></div>
+
+    <main class="content">
+      <h1>Photos</h1>
+      <p class="subtitle">Small moments and stories.</p>
+
+      <div class="photos-list">
+
+        <!-- Example Photo 1 -->
+        <div class="photo-item">
+          <img src="https://your-r2-bucket-url/sample1.jpg" alt="">
+          <p class="caption">A quiet morning walk near Thu Duc.</p>
+        </div>
+
+        <!-- Example Photo 2 -->
+        <div class="photo-item">
+          <img src="https://your-r2-bucket-url/sample2.jpg" alt="">
+          <p class="caption">Evening lights over District 1.</p>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    fetch("sidebar.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("sidebar").innerHTML = html;
+
+        const links = document.querySelectorAll(".sidebar a");
+        links.forEach(link => {
+          if (link.href === window.location.href) {
+            link.classList.add("active");
+          }
+        });
+      });
+  </script>
+</body>
+</html>

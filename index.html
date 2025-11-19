@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | duy.me</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="layout">
+    <!-- Sidebar -->
+    <div id="sidebar"></div>
+
+    <!-- Main content -->
+    <main class="content">
+      <p>Welcome to my website :)</p>
+
+      <section>
+        <p>On this site you can find a number of things</p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // load sidebar
+    fetch('sidebar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('sidebar').innerHTML = html;
+
+        // highlight active page
+        const links = document.querySelectorAll('.sidebar a');
+        links.forEach(link => {
+          if (link.href === window.location.href) {
+            link.classList.add('active');
+          }
+        });
+      });
+  </script>
+</body>
+</html>

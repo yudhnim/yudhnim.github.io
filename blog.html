@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | duy.me</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="layout">
+
+    <div id="sidebar"></div>
+
+    <main class="content">
+      <h1>Blog</h1>
+      <p class="subtitle">Thoughts, notes, and things I’m building.</p>
+
+      <div class="posts">
+        
+        <article class="post-card">
+          <h2><a href="post.html?name=first-post">Starting this little blog</a></h2>
+          <p class="date">2025-01-01</p>
+          <p>Why I decided to build my own website and what I want to write about.</p>
+        </article>
+
+        <article class="post-card">
+          <h2><a href="post.html?name=ml-credit-score">Building my credit scorecard with logistic regression</a></h2>
+          <p class="date">2025-02-10</p>
+          <p>A small breakdown of how I scaled my logistic regression model into 300–850 score.</p>
+        </article>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    fetch("sidebar.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("sidebar").innerHTML = html;
+
+        const links = document.querySelectorAll(".sidebar a");
+        links.forEach(link => {
+          if (link.href === window.location.href) {
+            link.classList.add("active");
+          }
+        });
+      });
+  </script>
+</body>
+</html>

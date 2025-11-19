@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | duy.me</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="layout">
+    <!-- Sidebar will be loaded dynamically -->
+    <div id="sidebar"></div>
+
+    <!-- Main content -->
+    <main class="content">
+      <h1>About</h1>
+      <p>hi friends! my name is Duy and people also call me Alex </p>
+      <section>
+        <h2>Work</h2>
+        <p>at the moment, i am looking for a job in data fields. during this period, i am also learning new things and preparing myself for interviews. </p>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <p>(2021 - 2025) Bachelor’s degree in Data Science at the University of Science, Ho Chi Minh City.</p>
+        <p>This is where i learnt more about mathematics, statistics which later built my foundation on machine learning and artificial intelligence. I also had chances to work with my talented classmates and conducted some projects by myself. <br> 
+        My bachelor thesis titled "Machine Learning systems for Credit Risk" is my  </p>
+        <p>(2018 - 2021) English major at Nguyen Binh Khiem high school for the Gifted.</p>
+      </section>
+
+      <section>
+        <h2>Interests</h2>
+        <ul>
+          <li>computer science</li>
+          <li>risk</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Load sidebar dynamically
+    fetch('sidebar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('sidebar').innerHTML = html;
+
+        // highlight current link
+        const links = document.querySelectorAll('.sidebar a');
+        links.forEach(link => {
+          if (link.href === window.location.href) {
+            link.classList.add('active');
+          }
+        });
+      });
+  </script>
+</body>
+</html>
