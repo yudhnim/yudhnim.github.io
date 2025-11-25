@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | duy.me</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="layout">
+
+    <!-- Sidebar will load here -->
+    <div id="sidebar"></div>
+
+    <!-- Main content -->
+    <main class="content">
+      <h1>Projects</h1>
+      <p class="subtitle">A small collection of things I’ve built or explored.</p>
+
+      <div class="project-list">
+
+        <!-- Project 1 -->
+        <section class="project">
+          <h2>Machine Learning system for Credit Risk</h2>
+          <p class="date">feb 2025 to may 2025</p>
+          <p>
+            This is my bachelor's thesis project where I built a machine learning system for credit risk in context of peer-to-peer lending firm (Lending Club, later became a bank).
+            The system includes data collection, feature engineering, model training, evaluation, and monitoring. <br>
+            The core models of the system are PD, EAD, LGD and EL (aligned with Basel framework). For more detailed, </p>
+            <ul>
+                <li><b>Probability of Default: </b>logistic regression with dummy variables based on Weight of Evidence (WoE) analysis</li>
+                <li><b>Exposure at Default: </b>linear regression to predict credit conversion factor</li>
+                <li><b>Loss Given Default: </b>a two-stage approach due to 50% zero recovery rates. First stage predicts if recovery > 0 (logistic regression), 
+                    second stage estimates recovery amount (linear regression)</li>
+                <li><b>Expected Loss: </b>takes predictions from all three models (PD, EAD, LGD), multiplies them together: PD * EAD * LGD, stores the result in the Expected Loss (EL) column</li>
+            </ul>
+           <p>
+            Alongside with machine learning models, I also designed a credit scorecard using logistic regression that maps predicted probabilities to a score range of 300 to 850, which is widely used in the industry.
+            This makes the model accessible to credit analysts without statistical expertise.<br>
+            To make the system more financial-wise rather than just giving predictions, a <b>Credit Policy</b> was established to set thresholds for credit acceptance based on business objectives and risk appetite.
+            It includes risk classification (10-risk classes), decision rules (accept, review, reject), return on investment calculation (for stakeholders), and periodic review process (to ensure continued effectiveness).<br>
+            At the end of the system, I implemented a monitoring framework to track models changes overtime (when adding new data which has different characteristic from the trained one). <br>
+            The results demonstrate that even modest percentage improvements in <b>default rates (from 6.71% to 5.65%)</b> and <b>expected losses (from 6.91% to 5.77%)</b> can yield substantial financial benefits when applied at scale across thousands of loans (the Expected Loss decreased from $95,584,225 to $70,457,395, representing <b>a $25 million reduction in expected losses.</b>)
+            . The system's interpretability and regulatory alignment make it practical for real-world deployment in peer-to-peer lending platforms. 
+            Alternative policy configurations can be designed to be more or less restrictive depending on changing business objectives
+          </p>
+          <img src="assets/thesis4.png" alt="" class="project-img">
+        </section>
+
+        <!-- Project 2 -->
+        <section class="project">
+          <h2>Dashboard and report with PowerBI</h2>
+          <p class="date">dec 2024 - ongoing</p>
+          <p>
+            Aside from building machine learning models, I also created dashboards in PowerBI (as part of my self-learning journey), of course some of them still need 
+            improvements but I believe they are good enough to present the results to stakeholders. 
+          </p>
+          <p>
+            My design philosophy is
+          </p>
+          <ul>
+            <li>think of it as a presentation slide rather than a dashboard, the first glance is important</li>
+            <li>keep it simple and clean, avoid clutter. maybe that is my weakpoint, since my dashboards always have the same structure. in the future, i will adapt new ideas</li>
+            <li>use colors wisely to highlight important information, i often base on the firms's color theme to make the dashboard look harmonious   </li>
+          </ul>
+          <p>
+            things that need to be improved:
+            <ul>
+                <li>add more interactivity, like drill-down, tooltips, filters</li>
+                <li>optimize performance, some dashboards are slow when handling large datasets</li>
+                <li>need to learn more about DAX function</li>
+          </p>
+          <img src="assets/lendingclub_front.jpg" alt="" class="project-img">
+          <img src="assets/lendingclub_third.jpg" alt="" class="project-img">
+          <img src="assets/pwc.png" alt="" class="project-img">
+          <img src="assets/13f_1.png" alt="" class="project-img">
+          <img src="assets/13f_2.png" alt="" class="project-img">
+        </section>
+
+        <!-- Add more projects by duplicating the section -->
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Inject sidebar
+    fetch("sidebar.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("sidebar").innerHTML = html;
+
+        const links = document.querySelectorAll(".sidebar a");
+        links.forEach(link => {
+          if (link.href === window.location.href) {
+            link.classList.add("active");
+          }
+        });
+      });
+  </script>
+</body>
+</html>
