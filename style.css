@@ -14,7 +14,7 @@ body {
 
 /* Sidebar */
 .sidebar {
-  width: 200px;
+  width: 100px;
   padding: 1rem;
   border-right: 1px solid #eee;
 }
@@ -171,3 +171,4 @@ img {
 .content ul li::marker {
   content: "- ";
 }
+
